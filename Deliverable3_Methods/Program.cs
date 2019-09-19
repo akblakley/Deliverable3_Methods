@@ -13,36 +13,71 @@ namespace Deliverable3_Methods
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to USF! May I ask you a few questions?");
-
             try
             {
+                // Display a message welcoming the user
+                // and ask them to enter their name 
+                Console.WriteLine("Welcome to USF!");
+                Console.WriteLine();
+                Console.WriteLine("___________________________");
+                Console.WriteLine();
+                Console.WriteLine("Please state your name...");
+                Console.WriteLine();
+
+                // Gather the user's input 
+                string yourName = Console.ReadLine();
+
+                // Display a message saying 'hello' to the user
+                Console.WriteLine();
+                Console.WriteLine("Hello " + yourName + " ! ");
+                Console.WriteLine();
+                Console.WriteLine("Are you enjoying USF?");
+                Console.WriteLine();
+                Console.WriteLine("Press 1 for 'Yes' and 2 for 'No'");
+                Console.WriteLine();
+
                 // Declare variables 
-                int input_age;
-                string name;
+                int result;
 
-                // Prompt the user to enter their name 
-                Console.WriteLine("Please enter your name...");
-
-                // Allow the user to enter their name  
-                name = Console.ReadLine();
-
-                // Display a message saying "Hello" to the user
-                Console.WriteLine("Hello " + name);
-
-                // Prompt the user to enter their age 
-                Console.WriteLine("What is your age..?");
-                input_age = Convert.ToInt32(Console.ReadLine());
-
-                // This if statement test's to see if the input is between 18 and 100
-                if ((input_age > 17) && input_age <= 100))
+                if (int.TryParse(Console.ReadLine(), out result))
                 {
-                    // Display a message stating the user's age
-                    Console.WriteLine("Your age is: " + input_age);
+                    /* Start the IF/ELSE IF/ELSE block to display the 
+                     * message that corresponds to the input 
+                    */
+
+                    if (result == 1)
+                    {
+                        Console.WriteLine("___________________________");
+                        Console.WriteLine();
+                        Console.WriteLine("Awesome! Go Bulls!");
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to exit and start again...");
+                        Console.ReadKey(true);
+                    }
+                    else if (result == 2)
+                    {
+                        Console.WriteLine("___________________________");
+                        Console.WriteLine();
+                        Console.WriteLine("I'm sorry to hear that. I hope tomorrow is a better day!");
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to exit and start again...");
+                        Console.ReadKey(true);
+                    }
+                    else if (result >= 3)
+                    {
+                        Console.WriteLine("___________________________");
+                        Console.WriteLine();
+                        Console.WriteLine("Sorry, this is an incorrect response! Enter only 1 or 2...");
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to exit and start again...");
+                        Console.ReadKey(true);
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("You must enter an age between 1 and 100");
+                    Console.WriteLine();
+                    Console.WriteLine("___________________________");
+                    Console.WriteLine();
                     Console.WriteLine("Press any key to exit the program and try again...");
                     Console.ReadKey(true);
                 }
@@ -51,9 +86,6 @@ namespace Deliverable3_Methods
             {
                 Console.ReadKey(true);
             }
-            Console.WriteLine("Thank you!");
-            Console.WriteLine("Press any key to exit the program: ");
-            Console.ReadKey(true);
         }
     }
 }
